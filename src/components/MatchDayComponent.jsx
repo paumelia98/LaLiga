@@ -4,13 +4,12 @@ export const MatchDayComponent = () => {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-
-    const backendUrl = 'http://localhost:3000/api/competitions/PD/matches?matchday=26';
-
+    // Actualizado para apuntar a la URL desplegada en Vercel
+    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=26';
+  
     fetch(backendUrl)
       .then(response => response.json())
       .then(data => {
-
         setMatches(data.matches);
         console.log(data.matches);
       })
@@ -18,6 +17,7 @@ export const MatchDayComponent = () => {
         console.error('Error fetching matches:', error);
       });
   }, []);
+  
 
   const formatDateAndTime = (utcDate) => {
     const date = new Date(utcDate);
