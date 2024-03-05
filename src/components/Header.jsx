@@ -7,7 +7,7 @@ export const Header = () => {
 
   useEffect(() => {
       // URL del servidor backend que actúa como proxy
-      const backendUrl = 'http://localhost:3000/api/competitions/PD/teams';
+      const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/teams';
 
       fetch(backendUrl)
           .then(response => response.json())
