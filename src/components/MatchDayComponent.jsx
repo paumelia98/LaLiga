@@ -5,7 +5,7 @@ export const MatchDayComponent = () => {
 
   useEffect(() => {
     // Actualizado para apuntar a la URL desplegada en Vercel
-    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=26';
+    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=27';
   
     fetch(backendUrl)
       .then(response => response.json())
