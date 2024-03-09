@@ -19,12 +19,12 @@ export const Header = () => {
           .catch(error => {
               console.error('Error fetching teams:', error);
           });
-  }, []); // El array vacío asegura que este efecto solo se ejecuta una vez después del primer renderizado
+  }, []);
 
 
  
     return (
-        <header className='md:flex items-center justify-between bg-[#ebe9e9] w-full h-12 lg:px-56 p-2 hidden'>
+        <header className='md:flex items-center justify-between bg-[#f0f0f0] w-full h-12 lg:px-56 p-2 hidden'>
            {teams.map((team, index) => (
                 <li key={index} className='list-none'>
                     <img className='w-7 hover:scale-150' src={team.crest} alt="logo" />

@@ -5,7 +5,7 @@ export const MatchDayComponent = () => {
 
   useEffect(() => {
     // Actualizado para apuntar a la URL desplegada en Vercel
-    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=27';
+    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=28';
   
     fetch(backendUrl)
       .then(response => response.json())
@@ -17,7 +17,9 @@ export const MatchDayComponent = () => {
         console.error('Error fetching matches:', error);
       });
   }, []);
-  
+
+
+
 
   const formatDateAndTime = (utcDate) => {
     const date = new Date(utcDate);
@@ -37,17 +39,30 @@ export const MatchDayComponent = () => {
     return { formattedDate, formattedTime };
   };
 
+
+  const getMatchStatus = (status) => {
+    if (status === "FINISHED") {
+      return <p className='text-white font-semibold text-sm'>FINALIZADO</p>;}
+      else if (status === "IN_PLAY") {
+       return <p className='text-white font-semibold text-sm'>EN JUEGO</p>
+      }
+      else {
+        return <p className='text-white font-semibold text-sm'>EN JUEGO</p>
+      }
+  };
+
+
   return (
-    <div className='bg-[#00000a] px-4 lg:px-56 py-6'>
+    <div className='bg-[#ffffff] px-4 lg:px-56 py-6'>
       <div className="container">
-        <h2 className='text-white font-bold text-2xl mb-8'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
+        <h2 className='text-black font-bold text-2xl mb-8'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
       </div>
-      <div className='grid gap-3 grid-cols-1 xl:grid-cols-5'>
+      <div className='grid gap-3 grid-cols-1 xl:grid-cols-4'>
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
             <div key={match.id}>
-              <article className='bg-white min-w-52 border border-l-neutral-50'>
+              <article className='bg-white min-w-52 border '>
                 <div className='flex justify-between bg-[#f7f7f7] px-4 py-2  text-xs font-bold'>
                   <p>{formattedDate}</p>
                   <p>{formattedTime}</p>
@@ -56,8 +71,8 @@ export const MatchDayComponent = () => {
                   <div className='flex gap-2 items-center'>
                     <p className='text-sm font-semibold'>{match.homeTeam.tla}</p>
                     <img src={match.homeTeam.crest} alt="" className='w-6' />
-                    <p className=' text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : 'X'} </p> -
-                    <p className=' text-2xl font-bold'> {match.score.fullTime.away !== null ? match.score.fullTime.away : 'X'}</p>
+                    <p className=' text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : ''} </p> -
+                    <p className=' text-2xl font-bold'> {match.score.fullTime.away !== null ? match.score.fullTime.away : ''}</p>
 
                     <img src={match.awayTeam.crest} alt="" className='w-6' />
                     <p className='text-sm font-semibold'>{match.awayTeam.tla}</p>
@@ -70,9 +85,9 @@ export const MatchDayComponent = () => {
 
 
                 </div>
-                <div className='bg-[#ff4b44] flex items-center justify-center py-2'>
-                  <p className='text-white font-semibold'>Ver ahora</p>
-
+                <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
+                  
+                {getMatchStatus(match.status) }
 
                 </div>
             
