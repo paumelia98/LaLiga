@@ -8,3 +8,13 @@ body {
 }
 
 
+hr{ 
+  
+  border:         none;
+ 
+  height:         100%;
+ 
+  width: 2px;
+ 
+    background-color: rgb(234, 234, 234);    
+}

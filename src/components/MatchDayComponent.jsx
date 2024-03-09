@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import referee from '/src/assets/logos/referee.svg'
 export const MatchDayComponent = () => {
   const [matches, setMatches] = useState([]);
 
@@ -43,12 +43,13 @@ export const MatchDayComponent = () => {
     }
   };
 
+
   return (
-    <div className='bg-[#ffffff] px-4 lg:px-56 py-6'>
+    <div className='bg-[#ffffff] px-4 lg:px-40 py-6'>
       <div className="container">
         <h2 className='text-black font-bold text-2xl mb-8'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
       </div>
-      <div className='grid gap-3 grid-cols-1 xl:grid-cols-4'>
+      <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-4 '>
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
@@ -59,18 +60,43 @@ export const MatchDayComponent = () => {
                     <p>{formattedDate}</p>
                     <p>{formattedTime}</p>
                   </div>
-                  <div className='bg-white px-4 py-2 flex justify-between'>
-                    <div className='flex gap-2 items-center'>
-                      <p className='text-sm font-semibold'>{match.homeTeam.tla}</p>
-                      <img src={match.homeTeam.crest} alt="" className='w-6' />
-                      <p className='text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : ' '} - {match.score.fullTime.away !== null ? match.score.fullTime.away : ' '}</p>
-                      <img src={match.awayTeam.crest} alt="" className='w-6' />
-                      <p className='text-sm font-semibold'>{match.awayTeam.tla}</p>
+                  <div className='bg-white px-4 py-2 grid grid-cols-3 '>
+                    <div className='flex flex-col col-span-2'>
+                      <div className='flex gap-2 items-center  '>
+                        <p className='text-sm font-semibold'>{match.homeTeam.tla}</p>
+                        <img src={match.homeTeam.crest} alt="" className='w-6' />
+                        <p className='text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : ' '} - {match.score.fullTime.away !== null ? match.score.fullTime.away : ' '}</p>
+                        <img src={match.awayTeam.crest} alt="" className='w-6' />
+                        <p className='text-sm font-semibold'>{match.awayTeam.tla}</p>
+                      </div>
+
+                      <div className=' py-2'>
+                          <p className='text-[#7735ccf5] font-bold'>#{match.homeTeam.shortName.replace(/\s+/g, '')}{match.awayTeam.shortName.replace(/\s+/g, '')}</p>
+                      </div>
                     </div>
+                    <div className='flex gap-2'>
+                      <hr />
+                      <div className='flex flex-col'>
+                      <div className='flex gap-1 items-center'>
+                        <img src={referee} alt="" className='w-2' />
+                        {match.referees.length > 0 ? (
+                          <p className='font-bold text-xs'>{match.referees[0].name}</p>
+                        ) : (
+                          <p className='font-bold text-xs'>Sin asignar</p>
+                        )}
+                      </div>
+
+                     
+                      </div>
+                     
+                      
+                     
+                    </div>
+                
+                   
+                    
                   </div>
-                  <div className='px-4 py-2'>
-                    <p className='text-[#7735ccf5] font-bold'>#{match.homeTeam.shortName.replace(/\s+/g, '')}{match.awayTeam.shortName.replace(/\s+/g, '')}</p>
-                  </div>
+                 
                 </div>
                 <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
                   {getMatchStatus(match.status)}
