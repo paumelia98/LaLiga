@@ -21,7 +21,7 @@ export const MatchDayComponent = () => {
       .then(response => response.json())
       .then(data => {
         setMatches(data.matches);
-        console.log(data.matches);
+        
       })
       .catch(error => {
         console.error('Error fetching matches:', error);
@@ -55,7 +55,7 @@ export const MatchDayComponent = () => {
   };
 
   return (
-    <div className='bg-[#ffffff] px-4 lg:px-40 py-6 ' >
+    <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >
       <div className="container">
         <h2 className='text-black font-bold text-2xl mb-8 pt-6'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
       </div>
@@ -91,7 +91,7 @@ export const MatchDayComponent = () => {
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
-            <SwiperSlide key={match.id} className='cursor-grab' onClick={'cursor-grabbing'}>
+            <SwiperSlide key={match.id} className='cursor-grab'>
               <div className='flex flex-col '>
                 <article className='bg-white min-w-52 border flex flex-col justify-between min-h-32'>
                   <div>
@@ -119,9 +119,9 @@ export const MatchDayComponent = () => {
                         <div className='flex gap-1 items-center'>
                           <img src={referee} alt="" className='w-2' />
                           {match.referees.length > 0 ? (
-                            <p className='font-bold text-xs'>{match.referees[0].name}</p>
+                            <p className='font-bold text-[9px]'>{match.referees[0].name}</p>
                           ) : (
-                            <p className='font-bold text-xs'>Sin asignar</p>
+                            <p className='font-bold text-[9px]'>Sin asignar</p>
                           )}
                         </div>
                         </div>

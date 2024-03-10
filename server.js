@@ -16,8 +16,8 @@ app.use((req, res, next) => {
 app.get('/api/*', (req, res) => {
   const baseUrl = 'http://api.football-data.org/v4/';
   const path = req.params[0];
-  const queryParams = req.url.split('?')[1]; // Intenta capturar parámetros de consulta.
-  const url = `${baseUrl}${path}${queryParams ? `?${queryParams}` : ''}`; // Reconstruye la URL incluyendo parámetros de consulta.
+  const queryParams = req.url.split('?')[1]; 
+  const url = `${baseUrl}${path}${queryParams ? `?${queryParams}` : ''}`; 
   const apiKey = '1a339e6dbc3b4c649cc23a710a7bb7fa';
 
   fetch(url, {

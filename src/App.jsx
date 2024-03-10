@@ -6,6 +6,7 @@ import { MatchDayComponent } from './components/MatchDayComponent';
 
 
 import { Navbar } from './components/Navbar'
+import { Table } from './components/Table';
 
 function App() {
 
@@ -16,7 +17,9 @@ function App() {
       <Navbar/>
       <Hero/>
 
+
       <MatchDayComponent/>
+      <Table/>
       
     </>
   )
