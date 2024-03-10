@@ -18,3 +18,11 @@ hr{
  
     background-color: rgb(234, 234, 234);    
 }
+
+.swiper {
+  padding-bottom: 50px!important;
+}
+
+:root {
+  --swiper-theme-color: #000000!important;
+}

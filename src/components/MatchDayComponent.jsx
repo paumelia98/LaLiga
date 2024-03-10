@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import referee from '/src/assets/logos/referee.svg'
+
+import referee from '/src/assets/logos/referee.svg';
+
+import { Pagination } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
 export const MatchDayComponent = () => {
   const [matches, setMatches] = useState([]);
 
@@ -43,60 +54,89 @@ export const MatchDayComponent = () => {
     }
   };
 
-
   return (
-    <div className='bg-[#ffffff] px-4 lg:px-40 py-6'>
+    <div className='bg-[#ffffff] px-4 lg:px-40 py-6 ' >
       <div className="container">
-        <h2 className='text-black font-bold text-2xl mb-8'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
+        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
       </div>
-      <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 '>
+      <Swiper
+       modules={[ Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+        
+  pagination={{ clickable: true }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+           
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          
+          1024: {
+            slidesPerView: 2,
+           
+          },
+          1308: {
+            slidesPerView: 3,
+           
+          },
+          1715: {
+            slidesPerView: 4,
+         
+          },
+        }}
+      >
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
-            <div key={match.id} className='flex flex-col'>
-              <article className='bg-white min-w-52 border flex flex-col justify-between min-h-32' >
-                <div>
-                  <div className='flex justify-between bg-[#f7f7f7] px-4 py-2 text-xs font-bold'>
-                    <p>{formattedDate}</p>
-                    <p>{formattedTime}</p>
-                  </div>
-                  <div className='bg-white px-4 py-2 grid grid-cols-3 '>
-                    <div className='flex flex-col col-span-2'>
-                      <div className='flex gap-2 items-center  '>
-                        <p className='text-sm font-semibold'>{match.homeTeam.tla}</p>
-                        <img src={match.homeTeam.crest} alt="" className='w-6' />
-                        <p className='text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : ' '} - {match.score.fullTime.away !== null ? match.score.fullTime.away : ' '}</p>
-                        <img src={match.awayTeam.crest} alt="" className='w-6' />
-                        <p className='text-sm font-semibold'>{match.awayTeam.tla}</p>
-                      </div>
+            <SwiperSlide key={match.id} className='cursor-grab' onClick={'cursor-grabbing'}>
+              <div className='flex flex-col '>
+                <article className='bg-white min-w-52 border flex flex-col justify-between min-h-32'>
+                  <div>
+                    <div className='flex justify-between bg-[#f7f7f7] px-4 py-2 text-xs font-bold'>
+                      <p>{formattedDate}</p>
+                      <p>{formattedTime}</p>
+                    </div>
+                    <div className='bg-white px-4 py-2 grid grid-cols-3 '>
+                      <div className='flex flex-col col-span-2'>
+                        <div className='flex gap-2 items-center  '>
+                          <p className='text-sm font-semibold'>{match.homeTeam.tla}</p>
+                          <img src={match.homeTeam.crest} alt="" className='w-6' />
+                          <p className='text-2xl font-bold'>{match.score.fullTime.home !== null ? match.score.fullTime.home : ' '} - {match.score.fullTime.away !== null ? match.score.fullTime.away : ' '}</p>
+                          <img src={match.awayTeam.crest} alt="" className='w-6' />
+                          <p className='text-sm font-semibold'>{match.awayTeam.tla}</p>
+                        </div>
 
-                      <div className=' py-2'>
-                          <p className='text-[#7735ccf5] font-bold'>#{match.homeTeam.shortName.replace(/\s+/g, '')}{match.awayTeam.shortName.replace(/\s+/g, '')}</p>
+                        <div className='py-2'>
+                            <p className='text-[#7735ccf5] font-bold'>#{match.homeTeam.shortName.replace(/\s+/g, '')}{match.awayTeam.shortName.replace(/\s+/g, '')}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className='flex gap-2'>
-                      <hr />
-                      <div className='flex flex-col'>
-                      <div className='flex gap-1 items-center'>
-                        <img src={referee} alt="" className='w-2' />
-                        {match.referees.length > 0 ? (
-                          <p className='font-bold text-xs'>{match.referees[0].name}</p>
-                        ) : (
-                          <p className='font-bold text-xs'>Sin asignar</p>
-                        )}
+                      <div className='flex gap-2'>
+                        <hr />
+                        <div className='flex flex-col'>
+                        <div className='flex gap-1 items-center'>
+                          <img src={referee} alt="" className='w-2' />
+                          {match.referees.length > 0 ? (
+                            <p className='font-bold text-xs'>{match.referees[0].name}</p>
+                          ) : (
+                            <p className='font-bold text-xs'>Sin asignar</p>
+                          )}
+                        </div>
+                        </div>
                       </div>
-                      </div>
-                    </div>
-                  </div>                 
-                </div>
-                <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
-                  {getMatchStatus(match.status)}
-                </div>
-              </article>
-            </div>
+                    </div>                 
+                  </div>
+                  <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
+                    {getMatchStatus(match.status)}
+                  </div>
+                </article>
+              </div>
+            </SwiperSlide>
           );
         })}
-      </div>
+      </Swiper>
     </div>
   );
 };
