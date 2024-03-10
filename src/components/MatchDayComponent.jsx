@@ -49,7 +49,7 @@ export const MatchDayComponent = () => {
       <div className="container">
         <h2 className='text-black font-bold text-2xl mb-8'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
       </div>
-      <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2  2xl:grid-cols-4 '>
+      <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 '>
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
@@ -85,18 +85,9 @@ export const MatchDayComponent = () => {
                           <p className='font-bold text-xs'>Sin asignar</p>
                         )}
                       </div>
-
-                     
                       </div>
-                     
-                      
-                     
                     </div>
-                
-                   
-                    
-                  </div>
-                 
+                  </div>                 
                 </div>
                 <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
                   {getMatchStatus(match.status)}
