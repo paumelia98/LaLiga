@@ -60,7 +60,7 @@ export const LastMatchday = () => {
 
    <section className='bg-white px-4 lg:px-40'>
 
-<h2 className='text-black font-bold text-2xl mb-8 pt-6'>TODOS LOS RESULTADOS Y CLASIFICACIÓN</h2>
+<h2 className='text-black font-bold text-2xl mb-8 pt-6'>PARTIDOS 2023-2024</h2>
     <div className='grid grid-cols-1 2xl:grid-cols-2 gap-2 h-100 '>
     
 

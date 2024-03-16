@@ -7,18 +7,19 @@ import { LastMatchday } from './components/LastMatchday';
 
 import { Navbar } from './components/Navbar'
 
+
 function App() {
 
 
   return (
     <>
-      <Header/>
+     <Header/> 
       <Navbar/>
-      <Hero/>
+        <Hero/>
+      
 
-
-      <MatchDayComponent/>
-      <LastMatchday/>
+     <MatchDayComponent/>
+       <LastMatchday/> 
       
       
     </>

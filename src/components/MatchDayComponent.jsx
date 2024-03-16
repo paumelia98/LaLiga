@@ -6,6 +6,8 @@ import { Pagination } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Redpoint from '/src/assets/Redpoint.svg';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -24,23 +26,29 @@ export const MatchDayComponent = () => {
       .then(response => response.json())
       .then(data => {
         setCurrentMatchday(data.season.currentMatchday);
+        
       })
       .catch(error => console.error('Error fetching standings:', error));
   }, []);
 
   useEffect(() => {
-    // Asegúrate de que currentMatchday no sea una cadena vacía o undefined
     if (currentMatchday) {
       fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`)
         .then(response => response.json())
         .then(data => {
-          setMatches(data.matches);
+          // Ordenar los partidos aquí antes de llamar a setMatches
+          const sortedMatches = data.matches.sort((a, b) => {
+            const order = { IN_PLAY: 1, FINISHED: 2, SCHEDULED : 3  };
+            return order[a.status] - order[b.status];
+          });
+          setMatches(sortedMatches);
         })
         .catch(error => {
           console.error('Error fetching matches:', error);
         });
     }
-  }, [currentMatchday]); 
+  }, [currentMatchday]);
+  
 
 
 
@@ -71,10 +79,19 @@ export const MatchDayComponent = () => {
     }
   };
 
+  const liveMatch = (status) => {
+    if (status === "IN_PLAY") {
+      return <div className='flex gap-1'> <img src={Redpoint} className='w-2 blink' alt="" /> <p className='text-red-600  text-xs  font-bold'>En directo</p></div> 
+    } else {
+      return 
+    }
+
+  }
+
   return (
     <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >
       <div className="container">
-        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PARTIDOS DE LA SEMANA (JORNADA  {currentMatchday})</h2>
+        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PRÓXIMOS PARTIDOS  DE LA JORNADA  {currentMatchday}</h2>
       </div>
       <Swiper
        modules={[ Pagination]}
@@ -140,7 +157,9 @@ export const MatchDayComponent = () => {
                           ) : (
                             <p className='font-bold text-[9px]'>Sin asignar</p>
                           )}
+                        
                         </div>
+                        {liveMatch(match.status)}
                         </div>
                       </div>
                     </div>                 
