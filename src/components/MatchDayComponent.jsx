@@ -10,23 +10,40 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-
 export const MatchDayComponent = () => {
   const [matches, setMatches] = useState([]);
+  const [currentMatchday, setCurrentMatchday] = useState('');
+
 
   useEffect(() => {
-    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=28';
-
-    fetch(backendUrl)
+    // Asumiendo que este endpoint devuelve la información que incluye el matchday actual
+    const standingsUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/standings';
+   
+    
+    fetch(standingsUrl)
       .then(response => response.json())
       .then(data => {
-        setMatches(data.matches);
-        
+        setCurrentMatchday(data.season.currentMatchday);
       })
-      .catch(error => {
-        console.error('Error fetching matches:', error);
-      });
+      .catch(error => console.error('Error fetching standings:', error));
   }, []);
+
+  useEffect(() => {
+    // Asegúrate de que currentMatchday no sea una cadena vacía o undefined
+    if (currentMatchday) {
+      fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`)
+        .then(response => response.json())
+        .then(data => {
+          setMatches(data.matches);
+        })
+        .catch(error => {
+          console.error('Error fetching matches:', error);
+        });
+    }
+  }, [currentMatchday]); 
+
+
+
 
   const formatDateAndTime = (utcDate) => {
     const date = new Date(utcDate);
@@ -57,7 +74,7 @@ export const MatchDayComponent = () => {
   return (
     <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >
       <div className="container">
-        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>RESULTADOS DE LA ÚLTIMA JORNADA</h2>
+        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>RESULTADOS DE LA JORNADA {currentMatchday}</h2>
       </div>
       <Swiper
        modules={[ Pagination]}
@@ -137,6 +154,7 @@ export const MatchDayComponent = () => {
           );
         })}
       </Swiper>
+      
     </div>
   );
 };
