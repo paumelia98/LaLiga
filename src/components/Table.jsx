@@ -34,15 +34,15 @@ export const Table = () => {
     };
 
     return (
-        <section className='bg-[#ffffff] py-8 '> 
-            <h2 className='text-black font-bold text-2xl mb-8 pt-6 text-center '>CLASIFICACIÓN {currentMatchday}</h2>
+        <section className='bg-[#ffffff] pb-4 '> 
+       
             <div className='flex justify-center overflow-auto'>
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="table-auto bg-white text-[13px] whitespace-nowrap">
-                        <thead className="bg-[#f0efef] text-black py-4 sticky top-0 z-10">
+                        <thead className=" bg-gray-900 text-white py-4 sticky top-0 z-10">
                             <tr>
-                                <th className="sticky left-0 z-10 px-4 bg-[#f0efef]">#</th>
-                                <th className="sticky left-16 z-10 px-4 bg-[#f0efef]">Equipo</th>
+                                <th className="sticky left-0 z-10 px-4 py-3">#</th>
+                                <th className="sticky left-16 z-10 px-4 ">Equipo</th>
                                 <th className="px-4">PJ</th>
                                 <th className="px-4">V</th>
                                 <th className="px-4">E</th>
@@ -57,20 +57,20 @@ export const Table = () => {
                             {table.map((team, index) => (
                                 <tr className="hover:bg-gray-100" key={index}>
                                     <td className={getColor(team.position)}> <p className=' text-xs'>{team.position}</p></td>
-                                    <td className="sticky left-16 z-10 border px-4 bg-white">
-                                        <div className="flex items-center space-x-3">
+                                    <td className="sticky left-16 z-10 border  bg-white">
+                                        <div className="flex items-center ">
                                             <img src={team.team.crest} alt="Escudo" className="w-4 h-4 m-2"/>
                                             {team.team.name}
                                         </div>
                                     </td>
-                                    <td className="border px-4 text-center">{team.playedGames}</td>
-                                    <td className="border px-4 text-center">{team.won}</td>
-                                    <td className="border px-4 text-center">{team.draw}</td>
-                                    <td className="border px-4 text-center">{team.lost}</td>
-                                    <td className="border px-4 text-center">{team.goalsFor}</td>
-                                    <td className="border px-4 text-center">{team.goalsAgainst}</td>
-                                    <td className="border px-4 text-center">{team.goalDifference}</td>
-                                    <td className="border px-4 text-center font-bold">{team.points}</td>
+                                    <td className="border  text-center">{team.playedGames}</td>
+                                    <td className="border  text-center">{team.won}</td>
+                                    <td className="border  text-center">{team.draw}</td>
+                                    <td className="border  text-center">{team.lost}</td>
+                                    <td className="border  text-center">{team.goalsFor}</td>
+                                    <td className="border  text-center">{team.goalsAgainst}</td>
+                                    <td className="border  text-center">{team.goalDifference}</td>
+                                    <td className="border  text-center font-bold">{team.points}</td>
                                 </tr>
                             ))}
                         </tbody>

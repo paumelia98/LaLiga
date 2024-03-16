@@ -63,18 +63,18 @@ export const MatchDayComponent = () => {
 
   const getMatchStatus = (status) => {
     if (status === "FINISHED") {
-      return <p className='text-white font-semibold text-sm'>FINALIZADO</p>;
+      return    <div className='bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
     } else if (status === "IN_PLAY") {
-      return <p className='text-white font-semibold text-sm'>EN JUEGO</p>;
+      return  <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
     } else {
-      return <p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p>;
+      return <div className='bg-[#7685a5] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p> </div>;
     }
   };
 
   return (
     <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >
       <div className="container">
-        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>RESULTADOS DE LA JORNADA {currentMatchday}</h2>
+        <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PARTIDOS DE LA SEMANA (JORNADA  {currentMatchday})</h2>
       </div>
       <Swiper
        modules={[ Pagination]}
@@ -145,9 +145,9 @@ export const MatchDayComponent = () => {
                       </div>
                     </div>                 
                   </div>
-                  <div className='bg-[#ff4b44] flex items-center justify-center py-1'>
+               
                     {getMatchStatus(match.status)}
-                  </div>
+                 
                 </article>
               </div>
             </SwiperSlide>

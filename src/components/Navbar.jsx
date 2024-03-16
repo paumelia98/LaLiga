@@ -8,11 +8,11 @@ export const Navbar = () => {
     <>
     <nav className='flex items-center justify-center p-4 bg-[#ffffff] gap-5'>
              
-            <a className=' text-black font-bold hidden md:inline text-base' href="">EQUIPOS</a>
+            <a className=' text-black font-bold hidden md:inline text-base' href="">EN DIRECTO</a>
             <a className=' text-black font-bold   hidden md:inline text-base' href="">CLASIFICACIÓN</a>
             <img className='h-12 mx-16 ' src={logo}  alt="LaLiga logo" />
-            <a className=' text-black font-bold  hidden md:inline text-base' href="">JUGADORES</a>
-            <a className=' text-black font-bold  hidden md:inline text-base' href="">NOTICIAS</a>
+            <a className=' text-black font-bold  hidden md:inline text-base' href="">RESULTADOS</a>
+            <a className=' text-black font-bold  hidden md:inline text-base' href="">PATROCINADORES</a>
         
 
     </nav>

@@ -6,7 +6,6 @@ import { MatchDayComponent } from './components/MatchDayComponent';
 import { LastMatchday } from './components/LastMatchday';
 
 import { Navbar } from './components/Navbar'
-import { Table } from './components/Table';
 
 function App() {
 
@@ -20,7 +19,7 @@ function App() {
 
       <MatchDayComponent/>
       <LastMatchday/>
-      <Table/>
+      
       
     </>
   )
