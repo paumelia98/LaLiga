@@ -6,6 +6,7 @@ import { MatchDayComponent } from './components/MatchDayComponent';
 import { LastMatchday } from './components/LastMatchday';
 
 import { Navbar } from './components/Navbar'
+import Videos from './components/Videos';
 
 
 function App() {
@@ -13,14 +14,16 @@ function App() {
 
   return (
     <>
-     <Header/> 
+   <Header/>  
       <Navbar/>
         <Hero/>
       
 
-     <MatchDayComponent/>
+     <MatchDayComponent/>  
        <LastMatchday/> 
-      
+       
+
+      <Videos/>
       
     </>
   )
