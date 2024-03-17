@@ -1,13 +1,12 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
 
-// Importa los estilos de Swiper
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/effect-coverflow';
+import { Navigation } from 'swiper/modules';
 
 const Videos = () => {
     const [videos, setVideos] = useState([]);
@@ -33,39 +32,46 @@ const Videos = () => {
 
         fetchVideos();
     }, []);
-
     return (
-
-        <section className='bg-white px-40'>
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={3}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        
-        modules={[EffectCoverflow]}
-        className="swiperSlide"
-      >
-            {videos.map((video, index) => (
-                <SwiperSlide key={index}>
-                    <iframe className='aspect-video w-100'
-                        src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                        title={video.snippet.title}
-                       
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                       
-                    ></iframe>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+        <section className='videos-section px-4 lg:px-40'>
+            <Swiper
+                breakpoints={{
+                    // when window width is >= 640px
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    // when window width is >= 1024px
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1424: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }}
+                navigation={true}
+                modules={[Navigation]}
+                className="mySwiper"
+            >
+                {videos.map((video, index) => (
+                    <SwiperSlide key={index}>
+                        <iframe
+                            className='video-frame'
+                            src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                            title={video.snippet.title}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </section>
     );
 };

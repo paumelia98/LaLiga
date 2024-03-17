@@ -9,8 +9,8 @@ export default {
       'sm': '640px',
       'md': '768px',  
       'lg': '1024px',   
-      'xl': '1308px',  
-      '2xl': '1715px',     
+      'xl': '1300px',  
+      '2xl': '1730px',     
     },
     extend: { grayscale: {
       50: '50%',
