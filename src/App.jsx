@@ -33,6 +33,7 @@ function App() {
          <MatchDayComponent />
         <LastMatchday /> 
          <Videos /> 
+         <Footer/>
       </div>
     </>
   );
