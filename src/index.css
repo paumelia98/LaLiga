@@ -36,20 +36,22 @@ hr{
   animation: blink 1s linear infinite;
 }
 
-.videos-section {
-  padding: 20px;
-  background-color: #fff; /* Ajusta el color de fondo según tu diseño */
-}
+
 
 .video-frame {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 16 / 9; /* Mantiene el aspecto de los videos */
 }
 
-@media (max-width: 639px) {
-  .videos-section {
-    padding: 10px;
-  }
 
- 
+/* Ajusta la posición de la flecha de navegación derecha */
+.swiper-button-next {
+  right: -0px; /* Mueve la flecha más hacia fuera del contenedor a la derecha */
 }
+
+/* Ajusta la posición de la flecha de navegación izquierda */
+.swiper-button-prev {
+  left: -0px; /* Mueve la flecha más hacia fuera del contenedor a la izquierda */
+}
+
+

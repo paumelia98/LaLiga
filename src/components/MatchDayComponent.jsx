@@ -125,7 +125,7 @@ export const MatchDayComponent = () => {
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
-            <SwiperSlide key={match.id} className='cursor-grab'>
+            <SwiperSlide key={match.id} className='cursor-grab active:cursor-grabbing'>
               <div className='flex flex-col '>
                 <article className='bg-white min-w-52 border flex flex-col justify-between min-h-32'>
                   <div>

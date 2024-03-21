@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { FreeMode, Pagination } from 'swiper/modules';
 
 const Videos = () => {
     const [videos, setVideos] = useState([]);
@@ -33,7 +34,9 @@ const Videos = () => {
         fetchVideos();
     }, []);
     return (
-        <section className='videos-section px-4 lg:px-40'>
+        <section className=' px-4 lg:px-40 mt-16 '>
+            <h2 className='text-black font-bold text-2xl mb-8 pt-6'>NO TE PIERDAS LOS RESUMENES DE LA ÚLTIMA JORNADA</h2>
+          
             <Swiper
                 breakpoints={{
                     // when window width is >= 640px
@@ -53,15 +56,18 @@ const Videos = () => {
                     },
                     1424: {
                         slidesPerView: 4,
-                        spaceBetween: 30,
+                        spaceBetween: 0,
                     },
                 }}
-                navigation={true}
-                modules={[Navigation]}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[FreeMode, Pagination]}
                 className="mySwiper"
             >
                 {videos.map((video, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={index} className='cursor-grab active:cursor-grabbing'>
                         <iframe
                             className='video-frame'
                             src={`https://www.youtube.com/embed/${video.id.videoId}`}

@@ -65,7 +65,7 @@ export const LastMatchday = () => {
     
 
    
-    <div className='col-span-1'>
+    <div className='col-span-1 '>
     <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PARTIDOS 2023-2024</h2>
       <select
         className=" text-center w-full  py-2 bg-gray-900 text-white  "
@@ -78,7 +78,7 @@ export const LastMatchday = () => {
       </select>
 
       {currentMatchday ? (
-        <div className="mt-0 bg-[#ffffff] p-1 w-auto pb-12 pt-6"  style={{
+        <div className="mt-0 bg-[#ffffff] p-1 w-auto pb-16 pt-6 "  style={{
           boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"
         }}>
       

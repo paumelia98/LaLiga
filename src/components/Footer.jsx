@@ -34,8 +34,6 @@ export const Footer = () => {
         ))
 
         }
-        
-
             <a href="https://www.laliga.com/" className='px-6 py-3 bg-[#ff4b44] text-white font-semibold hover:scale-110'>WEB OFICIAL</a>
        </div>
     
