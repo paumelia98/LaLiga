@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
 import referee from '/src/assets/logos/referee.svg';
-
 import { Pagination } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import Redpoint from '/src/assets/Redpoint.svg';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -16,42 +10,57 @@ export const MatchDayComponent = () => {
   const [matches, setMatches] = useState([]);
   const [currentMatchday, setCurrentMatchday] = useState('');
 
-
   useEffect(() => {
-    // Asumiendo que este endpoint devuelve la información que incluye el matchday actual
     const standingsUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/standings';
-   
-    
+
     fetch(standingsUrl)
       .then(response => response.json())
       .then(data => {
-        setCurrentMatchday(data.season.currentMatchday);
+        const fetchedCurrentMatchday = data.season.currentMatchday.toString();
+        const localCurrentMatchday = localStorage.getItem('currentMatchday');
         
+        if (fetchedCurrentMatchday !== localCurrentMatchday) {
+     
+          setCurrentMatchday(fetchedCurrentMatchday);
+          localStorage.setItem('currentMatchday', fetchedCurrentMatchday);
+  
+          localStorage.removeItem('matchesData'); 
+        } else {
+          setCurrentMatchday(fetchedCurrentMatchday);
+     
+        }
       })
-      .catch(error => console.error('Error fetching standings:', error));
+      .catch(error => {
+        console.error('Error fetching standings:', error);
+      });
   }, []);
 
   useEffect(() => {
     if (currentMatchday) {
-      fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`)
-        .then(response => response.json())
-        .then(data => {
-          // Ordenar los partidos aquí antes de llamar a setMatches
-          const sortedMatches = data.matches.sort((a, b) => {
-            const order = { IN_PLAY: 1, FINISHED: 2, SCHEDULED : 3  };
-            return order[a.status] - order[b.status];
+      const matchesUrl = `https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`;
+      const localMatchesData = localStorage.getItem('matchesData');
+      const matchesData = localMatchesData ? JSON.parse(localMatchesData) : null;
+
+      if (matchesData && matchesData.matchday === currentMatchday) {
+
+        setMatches(matchesData.matches);
+      } else {
+        fetch(matchesUrl)
+          .then(response => response.json())
+          .then(data => {
+            const sortedMatches = data.matches.sort((a, b) => {
+              const order = { IN_PLAY: 1, FINISHED: 2, SCHEDULED: 3 };
+              return order[a.status] - order[b.status];
+            });
+            setMatches(sortedMatches);
+            localStorage.setItem('matchesData', JSON.stringify({matchday: currentMatchday, matches: sortedMatches}));
+          })
+          .catch(error => {
+            console.error('Error fetching matches:', error);
           });
-          setMatches(sortedMatches);
-        })
-        .catch(error => {
-          console.error('Error fetching matches:', error);
-        });
+      }
     }
   }, [currentMatchday]);
-  
-
-
-
 
   const formatDateAndTime = (utcDate) => {
     const date = new Date(utcDate);
@@ -65,15 +74,14 @@ export const MatchDayComponent = () => {
       minute: '2-digit',
       hour12: false,
     });
-
     return { formattedDate, formattedTime };
   };
 
   const getMatchStatus = (status) => {
     if (status === "FINISHED") {
-      return    <div className='bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
+      return <div className='bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
     } else if (status === "IN_PLAY") {
-      return  <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
+      return <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
     } else {
       return <div className='bg-[#7685a5] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p> </div>;
     }
@@ -81,12 +89,10 @@ export const MatchDayComponent = () => {
 
   const liveMatch = (status) => {
     if (status === "IN_PLAY") {
-      return <div className='flex gap-1'> <img src={Redpoint} className='w-2 blink' alt="" /> <p className='text-red-600  text-xs  font-bold'>En directo</p></div> 
-    } else {
-      return 
+      return <div className='flex gap-1'> <img src={Redpoint} className='w-2 blink' alt="" /> <p className='text-red-600 text-xs font-bold'>En directo</p></div>
     }
-
-  }
+    return null;
+  };
 
   return (
     <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >

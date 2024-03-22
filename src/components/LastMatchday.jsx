@@ -8,26 +8,44 @@ export const LastMatchday = () => {
 
   useEffect(() => {
     const fetchMatchesForMatchday = (matchday) => {
-      fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${matchday}`)
-        .then(response => response.json()) // Primero, convertimos la respuesta a JSON.
-        .then(data => {
-          setMatches(prev => ({ ...prev, [matchday]: data.matches })); // Luego, actualizamos el estado con los partidos.
-
-          if (!currentMatchday) {
-            setCurrentMatchday(matchday); // Si no hay una jornada actual definida, la establecemos.
-          }
-        })
-        .catch(error => console.error('Error fetching matches:', error)); // Si hay algún error, lo capturamos aquí.
+      const localMatches = localStorage.getItem(`matchesMatchday${matchday}`);
+      if (localMatches) {
+        setMatches(prev => ({ ...prev, [matchday]: JSON.parse(localMatches) }));
+      } else {
+        fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${matchday}`)
+          .then(response => response.json())
+          .then(data => {
+            setMatches(prev => ({ ...prev, [matchday]: data.matches }));
+            localStorage.setItem(`matchesMatchday${matchday}`, JSON.stringify(data.matches));
+            if (!currentMatchday) {
+              setCurrentMatchday(matchday);
+            }
+          })
+          .catch(error => console.error('Error fetching matches:', error));
+      }
     };
 
-    fetchMatchesForMatchday(currentMatchday || 1); // Iniciamos la carga de los partidos para la jornada actual o la primera jornada si no está definida.
-  }, [currentMatchday]); 
+    // Intenta cargar la jornada actual desde el almacenamiento local
+    const localCurrentMatchday = localStorage.getItem('currentMatchday');
+    if (localCurrentMatchday) {
+      setCurrentMatchday(JSON.parse(localCurrentMatchday));
+    } else {
+      // Si no hay una jornada actual definida, la establece en 1 y la guarda
+      setCurrentMatchday(1);
+      localStorage.setItem('currentMatchday', JSON.stringify(1));
+    }
+
+    fetchMatchesForMatchday(currentMatchday || 1);
+  }, [currentMatchday]);
 
   const handleChangeMatchday = (event) => {
     const selectedMatchday = parseInt(event.target.value);
-    setCurrentMatchday(selectedMatchday); // Actualizamos la jornada actual basada en la selección del usuario.
+    setCurrentMatchday(selectedMatchday);
+    localStorage.setItem('currentMatchday', JSON.stringify(selectedMatchday));
+    if (!matches[selectedMatchday]) {
+      fetchMatchesForMatchday(selectedMatchday);
+    }
   };
-
 
 
   const formatDate = (utcDate) => {

@@ -6,15 +6,28 @@ export const Table = () => {
 
     useEffect(() => {
         const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/standings';
-        fetch(backendUrl)
-            .then(response => response.json())
-            .then(data => {
-                setTable(data.standings[0].table);
-                setCurrentMatchday(data.season.currentMatchday);
-            })
-            .catch(error => {
-                console.error('Error fetching table:', error);
-            });
+        
+      
+        const localTable = localStorage.getItem('tableData');
+        const localMatchday = localStorage.getItem('currentMatchdayForTable');
+
+        if (localTable && localMatchday) {
+            setTable(JSON.parse(localTable));
+            setCurrentMatchday(JSON.parse(localMatchday));
+        } else {
+            fetch(backendUrl)
+                .then(response => response.json())
+                .then(data => {
+                    setTable(data.standings[0].table);
+                    setCurrentMatchday(data.season.currentMatchday);
+                   
+                    localStorage.setItem('tableData', JSON.stringify(data.standings[0].table));
+                    localStorage.setItem('currentMatchdayForTable', JSON.stringify(data.season.currentMatchday));
+                })
+                .catch(error => {
+                    console.error('Error fetching table:', error);
+                });
+        }
     }, []);
 
     const getColor = (position) => {

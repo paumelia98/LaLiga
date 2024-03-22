@@ -25,16 +25,16 @@ function App() {
     <>
 
  
-      {isModalOpen && <ModalFirst  onClose={handleCloseModal} />}
-      <div className={isModalOpen ? 'blur' : ''}>
+      {/* {isModalOpen && <ModalFirst  onClose={handleCloseModal} />}
+      <div className={isModalOpen ? 'blur' : ''}> */}
          <Header />
         <Navbar /> 
-        <Hero />
+         <Hero />
          <MatchDayComponent />
-        <LastMatchday /> 
+         <LastMatchday /> 
          <Videos /> 
-         <Footer/>
-      </div>
+         <Footer/> 
+      {/* </div> */}
     </>
   );
 }
