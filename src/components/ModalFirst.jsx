@@ -3,24 +3,24 @@ import referee from '/src/assets/referee.png'
 
 export const ModalFirst = ({ onClose }) => {
   return (
-    <div className="flex items-center justify-center w-full h-full z-50 fixed">
-      <div className='relative bg-[#8b2622] rounded-md p-6 pb-0 grid grid-cols-2 max-w-[1000px]'>
+    <div className="flex items-center justify-center w-full h-full z-50 fixed p-20">
+      <div className='relative bg-[#8b2622] rounded-md p-6 lg:pb-0 grid lg:grid-cols-2 max-w-[1000px]'>
         
       
         <button 
           onClick={onClose} 
           className='absolute top-0 right-0 mt-4 mr-4 bg-transparent text-white font-bold text-2xl leading-none hover:text-gray-400'
         >
-          &times; {/* Entidad HTML para "X" */}
+          &times; 
         </button>
 
         <div className='flex justify-center items-center'> 
-          <img src={referee} alt="Referee" className='h-auto w-full'/> 
+          <img src={referee} alt="Referee" className='lg:h-auto lg:w-full'/> 
         </div>
         
-        <div className=''>
-          <p className='text-white text-6xl font-bold mb-12'>¡ATENCIÓN!</p>
-          <p className='font-semibold text-xl text-white'>Este sitio web ha sido desarrollado por mi (Pau Melià) con fines educativos y opera gracias a una API gratuita. Para evitar superar el límite de solicitudes permitidas por minuto, te solicitamos amablemente evitar recargar la página innecesariamente. Esta web obviamente no es oficial.</p>
+        <div className='flex flex-col justify-center items-center'>
+          <p className='text-white text-xl lg:text-6xl font-bold lg:mb-12 my-4'>¡ATENCIÓN!</p>
+          <p className='font-semibold  text-xs lg:text-xl text-white'>Este sitio web ha sido desarrollado con fines educativos y opera gracias a una API gratuita. Para evitar superar el límite de solicitudes permitidas por minuto, te solicitamos amablemente evitar recargar la página innecesariamente.</p>
           <button onClick={onClose} className='mt-4 bg-[#0b1121] text-white font-bold py-2 px-4 rounded transition-all hover:scale-105'>Entendido</button>
 
         </div>

@@ -155,7 +155,7 @@ export const MatchDayComponent = () => {
                           {match.referees.length > 0 ? (
                             <p className='font-bold text-[9px]'>{match.referees[0].name}</p>
                           ) : (
-                            <p className='font-bold text-[9px]'>Sin asignar</p>
+                            <p className='font-bold text-[9px]'>Árbitro sin asignar</p>
                           )}
                         
                         </div>

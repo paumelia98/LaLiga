@@ -61,7 +61,7 @@ export const LastMatchday = () => {
    <section className='bg-white px-4 lg:px-40 '>
 
 
-    <div className='grid grid-cols-1 2xl:grid-cols-3  gap-4 lg:gap-12 h-100  '>
+    <div className='grid grid-cols-1 2xl:grid-cols-3  lg:gap-12 h-100  '>
     
 
    

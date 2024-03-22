@@ -36,7 +36,7 @@ export const Table = () => {
             <div className='flex justify-center overflow-x-auto col-span-2'>
                 
                 <div className="min-w-full relative   sm:rounded-lg">
-                <h2 className='text-black font-bold text-2xl mb-8 pt-6'>Clasificación</h2>
+                <h2 className='text-black font-bold text-2xl mb-8 lg:mt-5 mt-12'>Clasificación</h2>
                     <table className="w-full text-xs sm:text-sm md:text-base text-left text-gray-500 dark:text-gray-400">
                         <thead className="text-xs sm:text-sm text-gray-700 uppercase bg-gray-50 sticky top-0 z-10">
                             <tr>

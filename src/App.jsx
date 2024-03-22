@@ -25,7 +25,7 @@ function App() {
     <>
 
  
-      {isModalOpen && <ModalFirst onClose={handleCloseModal} />}
+      {isModalOpen && <ModalFirst  onClose={handleCloseModal} />}
       <div className={isModalOpen ? 'blur' : ''}>
          <Header />
         <Navbar /> 
