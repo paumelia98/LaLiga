@@ -12,23 +12,17 @@ export const MatchDayComponent = () => {
 
   useEffect(() => {
     const standingsUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/standings';
+    const localMatchday = localStorage.getItem('currentMatchday');
+
+    if (localMatchday) {
+      setCurrentMatchday(localMatchday);
+    }
 
     fetch(standingsUrl)
       .then(response => response.json())
       .then(data => {
-        const fetchedCurrentMatchday = data.season.currentMatchday.toString();
-        const localCurrentMatchday = localStorage.getItem('currentMatchday');
-        
-        if (fetchedCurrentMatchday !== localCurrentMatchday) {
-     
-          setCurrentMatchday(fetchedCurrentMatchday);
-          localStorage.setItem('currentMatchday', fetchedCurrentMatchday);
-  
-          localStorage.removeItem('matchesData'); 
-        } else {
-          setCurrentMatchday(fetchedCurrentMatchday);
-     
-        }
+        setCurrentMatchday(data.season.currentMatchday);
+        localStorage.setItem('currentMatchday', data.season.currentMatchday);
       })
       .catch(error => {
         console.error('Error fetching standings:', error);
@@ -38,27 +32,25 @@ export const MatchDayComponent = () => {
   useEffect(() => {
     if (currentMatchday) {
       const matchesUrl = `https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`;
-      const localMatchesData = localStorage.getItem('matchesData');
-      const matchesData = localMatchesData ? JSON.parse(localMatchesData) : null;
+      const localMatches = localStorage.getItem('matchesData');
 
-      if (matchesData && matchesData.matchday === currentMatchday) {
-
-        setMatches(matchesData.matches);
-      } else {
-        fetch(matchesUrl)
-          .then(response => response.json())
-          .then(data => {
-            const sortedMatches = data.matches.sort((a, b) => {
-              const order = { IN_PLAY: 1, FINISHED: 2, SCHEDULED: 3 };
-              return order[a.status] - order[b.status];
-            });
-            setMatches(sortedMatches);
-            localStorage.setItem('matchesData', JSON.stringify({matchday: currentMatchday, matches: sortedMatches}));
-          })
-          .catch(error => {
-            console.error('Error fetching matches:', error);
-          });
+      if (localMatches) {
+        setMatches(JSON.parse(localMatches));
       }
+
+      fetch(matchesUrl)
+        .then(response => response.json())
+        .then(data => {
+          const sortedMatches = data.matches.sort((a, b) => {
+            const order = { IN_PLAY: 1, FINISHED: 2, SCHEDULED: 3 };
+            return order[a.status] - order[b.status];
+          });
+          setMatches(sortedMatches);
+          localStorage.setItem('matchesData', JSON.stringify(sortedMatches));
+        })
+        .catch(error => {
+          console.error('Error fetching matches:', error);
+        });
     }
   }, [currentMatchday]);
 
