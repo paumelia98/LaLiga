@@ -31,7 +31,7 @@ export const MatchDayComponent = () => {
 
   useEffect(() => {
     if (currentMatchday) {
-      const matchesUrl = `https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`;
+      const matchesUrl = `https://la-liga-pau.vercel.app/api/competitions/PD/matches?matchday=${currentMatchday}`;
       const localMatches = localStorage.getItem('matchesData');
 
       if (localMatches) {
