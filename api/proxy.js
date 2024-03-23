@@ -6,7 +6,7 @@ export default async (req, res) => {
     const path = req.url.replace('/api/', '');
     const url = `${baseUrl}${path}`;
 
-    const apiKey = '1a339e6dbc3b4c649cc23a710a7bb7fa';
+    const apiKey = process.env.API_KEY;
 
     // Define una función auxiliar para configurar los headers de CORS
     const setCorsHeaders = (response) => {
