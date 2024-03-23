@@ -51,8 +51,8 @@ const Videos = () => {
             </div>
 
             <div className='flex justify-center mt-[20px]'>
-                <button onClick={() => scroll(-300)} style={{ marginRight: '10px' }}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="45.14 6.53 19.88 33.16 45.14 57.42"/></svg></button>
-                <button onClick={() => scroll(300)}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="18.86 57.47 44.12 30.84 18.86 6.58"/></svg></button>
+                <button aria-label="Botón hacia la izquierda" onClick={() => scroll(-300)} style={{ marginRight: '10px' }}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="45.14 6.53 19.88 33.16 45.14 57.42"/></svg></button>
+                <button aria-label="Botón hacia la derecha" onClick={() => scroll(300)}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="18.86 57.47 44.12 30.84 18.86 6.58"/></svg></button>
             </div>
         </section>
     );
