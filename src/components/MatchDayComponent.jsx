@@ -87,7 +87,7 @@ export const MatchDayComponent = () => {
   };
 
   return (
-    <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' >
+    <div className='bg-[#ffffff] px-4 lg:px-40 py-6 W-100 ' id='directo' >
       <div className="container">
         <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PRÓXIMOS PARTIDOS  DE LA JORNADA  {currentMatchday}</h2>
       </div>

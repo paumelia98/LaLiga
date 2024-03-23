@@ -25,8 +25,8 @@ function App() {
     <>
 
  
-      {/* {isModalOpen && <ModalFirst  onClose={handleCloseModal} />}
-      <div className={isModalOpen ? 'blur' : ''}> */}
+      {isModalOpen && <ModalFirst  onClose={handleCloseModal} />}
+      <div className={isModalOpen ? 'blur' : ''}> 
          <Header />
         <Navbar /> 
          <Hero />
@@ -34,7 +34,7 @@ function App() {
          <LastMatchday /> 
          <Videos /> 
          <Footer/> 
-      {/* </div> */}
+      </div> 
     </>
   );
 }

@@ -25,12 +25,11 @@ export const LastMatchday = () => {
       }
     };
 
-    // Intenta cargar la jornada actual desde el almacenamiento local
     const localCurrentMatchday = localStorage.getItem('currentMatchday');
     if (localCurrentMatchday) {
       setCurrentMatchday(JSON.parse(localCurrentMatchday));
     } else {
-      // Si no hay una jornada actual definida, la establece en 1 y la guarda
+
       setCurrentMatchday(1);
       localStorage.setItem('currentMatchday', JSON.stringify(1));
     }
@@ -54,10 +53,10 @@ export const LastMatchday = () => {
       day: '2-digit',
       month: '2-digit'
     
-    }).replace(/\/(\d{2})$/, ''); // Eliminar el año y la barra antes del año
+    }).replace(/\/(\d{2})$/, ''); 
     
    
-    return `${formattedDate}`; // Devuelve la fecha y hora en el formato deseado
+    return `${formattedDate}`; 
   };
 
   const formatTime = (utcDate) => {
@@ -68,7 +67,7 @@ export const LastMatchday = () => {
       hour12: false,
     });
    
-    return `${formattedTime}`; // Devuelve la fecha y hora en el formato deseado
+    return `${formattedTime}`;
   };
 
  
@@ -76,7 +75,7 @@ export const LastMatchday = () => {
 
   return (
 
-   <section className='bg-white px-4 lg:px-40 '>
+   <section className='bg-white px-4 lg:px-40 ' id='resultados'>
 
 
     <div className='grid grid-cols-1 2xl:grid-cols-3  lg:gap-12 h-100  '>
