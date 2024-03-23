@@ -5,7 +5,7 @@ export const Table = () => {
     const [currentMatchday, setCurrentMatchday] = useState('');
 
     useEffect(() => {
-        const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/standings';
+        const backendUrl = 'https://la-liga-pau.vercel.app/api/competitions/PD/standings';
         
       
         const localTable = localStorage.getItem('tableData');

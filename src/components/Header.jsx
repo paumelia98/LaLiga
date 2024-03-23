@@ -4,7 +4,7 @@ export const Header = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    const backendUrl = 'https://la-liga-peach.vercel.app/api/competitions/PD/teams';
+    const backendUrl = 'https://la-liga-pau.vercel.app/api/competitions/PD/teams';
     const localData = localStorage.getItem('teamsData');
 
     if (localData) {

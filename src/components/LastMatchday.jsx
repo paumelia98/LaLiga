@@ -12,7 +12,7 @@ export const LastMatchday = () => {
       if (localMatches) {
         setMatches(prev => ({ ...prev, [matchday]: JSON.parse(localMatches) }));
       } else {
-        fetch(`https://la-liga-peach.vercel.app/api/competitions/PD/matches?matchday=${matchday}`)
+        fetch(`https://la-liga-pau.vercel.app/api/competitions/PD/matches?matchday=${matchday}`)
           .then(response => response.json())
           .then(data => {
             setMatches(prev => ({ ...prev, [matchday]: data.matches }));
