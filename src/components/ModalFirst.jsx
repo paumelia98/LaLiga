@@ -1,5 +1,5 @@
 import React from 'react'
-import referee from '/src/assets/referee.png'
+import referee from '/src/assets/referee.webp'
 
 export const ModalFirst = ({ onClose }) => {
   return (
