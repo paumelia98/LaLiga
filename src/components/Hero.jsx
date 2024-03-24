@@ -9,20 +9,20 @@ export const Hero = () => {
   return (
     <section className=' bg-[#f0f0f0] h-96   overflow-hidden grid  gap-3 grid-cols-1 xl:grid-cols-3 lg:px-40 '>
       <div className=' lg:flex hidden lg:justify-center lg:items-center'>
-      <img src={fc24} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
-      <img src={microsoft} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
+      <img src={fc24} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
+      <img src={microsoft} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
       
       </div>
      
       <div className=' flex justify-center lg:items-center lg:justify-center items-end'>
-      <img src={pedri} alt="" className='  h-72 lg:h-96 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
-        <img src={vini} alt="" className='  h-72 lg:h-96 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
+      <img src={pedri} alt="" className='  h-72 lg:h-96 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
+        <img src={vini} alt="" className='  h-72 lg:h-96 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
     
 
       </div>
       <div className='lg:flex hidden lg:justify-center lg:items-center'>
-      <img src={sanmiguel} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
-      <img src={fc24} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' />
+      <img src={sanmiguel} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
+      <img src={fc24} alt="" className=' h-20 lg:h-26 grayscale-[50%] hover:grayscale-0 hover:scale-110' loading="lazy" />
       </div>
      
        

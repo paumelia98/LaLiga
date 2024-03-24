@@ -29,7 +29,7 @@ export const Footer = () => {
        <div className='flex gap-4 items-center lg:flex'>
         {socialNetworks.map (socialNetwork => (
             <a key={socialNetwork.id} href={socialNetwork.href} className=' hover:scale-110'>
-                <img src={socialNetwork.src} alt={socialNetwork.name} />
+                <img src={socialNetwork.src} alt={socialNetwork.name} loading="lazy" />
             </a>
         ))
 
