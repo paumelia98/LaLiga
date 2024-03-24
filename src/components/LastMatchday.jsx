@@ -106,7 +106,7 @@ export const LastMatchday = () => {
             
             matches[currentMatchday].map((match, matchIndex) => (
               
-              <div key={matchIndex} className="  items-center lg:mx-2 mx-1 grid lg:grid-cols-10 grid-cols-6 lg:text-sm text-sm   border-b border-t-gray-400 pb-2 pt-2">
+              <div key={matchIndex} className="  items-center lg:mx-2 mx-1 grid lg:grid-cols-10 grid-cols-6  text-sm   border-b border-t-gray-400 pb-2 pt-2">
                 <div className='flex flex-col text-xs text-[#858585] border-r mr-2 items-center'>
                 <span>{formatDate(match.utcDate)}</span>
                 <span>{formatTime(match.utcDate)}</span>

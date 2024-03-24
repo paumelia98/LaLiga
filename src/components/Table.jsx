@@ -71,19 +71,19 @@ export const Table = () => {
                                 <tr key={index} className="border-b">
                                     <td className={getColor(team.position)}><p className='text-xs '>{team.position}</p></td>
                                     <td className="px-6 py-2 whitespace-nowrap">
-                                        <div className="flex items-center text-xs font-medium ">
+                                        <div className="flex items-center text-sm font-medium ">
                                             <img src={team.team.crest} alt="Escudo" className="w-5 h-5 mr-2"/>
                                             {team.team.name}
                                         </div>
                                     </td>
-                                    <td className="px-6 py-2 text-center text-xs  font-bold">{team.points}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.playedGames}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.won}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.draw}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.lost}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.goalsFor}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.goalsAgainst}</td>
-                                    <td className="px-6 py-2 text-center text-xs ">{team.goalDifference}</td>
+                                    <td className="px-6 py-2 text-center text-sm  font-bold">{team.points}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.playedGames}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.won}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.draw}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.lost}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.goalsFor}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.goalsAgainst}</td>
+                                    <td className="px-6 py-2 text-center text-sm ">{team.goalDifference}</td>
                                    
                                 </tr>
                             ))}
