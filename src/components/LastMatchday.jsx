@@ -84,6 +84,8 @@ export const LastMatchday = () => {
    
     <div className='col-span-1 '>
     <h2 className='text-black font-bold text-2xl mb-8 pt-6'>PARTIDOS 2023-2024</h2>
+    <label htmlFor="matchdaySelect" className=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 hidden">Selecciona una jornada</label>
+
       <select
         className=" text-center w-full  py-2 bg-gray-900 text-white  "
         value={currentMatchday || ''}
