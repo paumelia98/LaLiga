@@ -75,7 +75,7 @@ export const LastMatchday = () => {
 
   return (
 
-   <section className='bg-white px-4 lg:px-40 ' id='resultados'>
+   <section className='bg-white px-4 lg:px-40 lg:mt-12  lg:mb-20 ' id='resultados'>
 
 
     <div className='grid grid-cols-1 2xl:grid-cols-3  lg:gap-12 h-100  '>

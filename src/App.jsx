@@ -11,6 +11,7 @@ import Videos from './components/Videos';
 import {  ModalFirst } from './components/ModalFirst';
 import { Footer } from './components/Footer';
 import { useState } from 'react';
+import { Built } from './components/Built';
 
 
 
@@ -29,11 +30,12 @@ function App() {
       <div className={isModalOpen ? 'blur' : ''}> 
          <Header />
         <Navbar /> 
-         <Hero />
+         <Hero /> 
          <MatchDayComponent />
          <LastMatchday /> 
-          <Videos /> 
+         <Videos /> 
          <Footer/> 
+         <Built/>
       </div> 
     </>
   );

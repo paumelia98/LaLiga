@@ -71,11 +71,11 @@ export const MatchDayComponent = () => {
 
   const getMatchStatus = (status) => {
     if (status === "FINISHED") {
-      return <div className='bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
+      return <div className=' bg-[#7685a5]  flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
     } else if (status === "IN_PLAY") {
       return <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
     } else {
-      return <div className='bg-[#7685a5] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p> </div>;
+      return <div className=' bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p> </div>;
     }
   };
 
