@@ -15,7 +15,7 @@ export const ModalFirst = ({ onClose }) => {
         </button>
 
         <div className='flex justify-center items-center'> 
-          <img src={referee} alt="Referee" className='lg:h-auto lg:w-full'/> 
+          <img src={referee} alt="Referee" className='lg:h-auto lg:w-full' loading="lazy"/> 
         </div>
         
         <div className='flex flex-col justify-center items-center'>
