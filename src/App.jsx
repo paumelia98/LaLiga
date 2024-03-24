@@ -32,7 +32,7 @@ function App() {
          <Hero />
          <MatchDayComponent />
          <LastMatchday /> 
-         {/* <Videos />  */}
+          <Videos /> 
          <Footer/> 
       </div> 
     </>
