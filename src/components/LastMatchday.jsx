@@ -87,6 +87,7 @@ export const LastMatchday = () => {
     <label htmlFor="matchdaySelect" className=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 hidden">Selecciona una jornada</label>
 
       <select
+      id="matchdaySelect"
         className=" text-center w-full  py-2 bg-gray-900 text-white  "
         value={currentMatchday || ''}
         onChange={handleChangeMatchday}
