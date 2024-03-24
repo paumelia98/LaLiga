@@ -1,7 +1,7 @@
 import React from 'react'
 
-import pedri from  '/src/assets/pedri.png'
-import vini from  '/src/assets/vini.png'
+import pedri from  '/src/assets/pedri.webp'
+import vini from  '/src/assets/vini.webp'
 import fc24 from  '/src/assets/sponsors/fc24.webp'
 import microsoft from  '/src/assets/sponsors/microsoft.png'
 import sanmiguel from  '/src/assets/sponsors/sanmiguel.png'
