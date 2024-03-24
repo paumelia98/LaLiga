@@ -75,7 +75,7 @@ export const MatchDayComponent = () => {
     } else if (status === "IN_PLAY") {
       return <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
     } else {
-      return <div className=' bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>AÚN POR JUGAR</p> </div>;
+      return <div className=' bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>PRÓXIMAMENTE</p> </div>;
     }
   };
 
