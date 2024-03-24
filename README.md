@@ -1,8 +1,5 @@
-# React + Vite
+# React + Vite + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a mi proyecto personal: una web educativa sobre la Liga de Fútbol Española. Este sitio, desarrollado con React y Tailwind CSS, ofrece una experiencia interactiva y educativa centrada en la pasión por el fútbol y el aprendizaje tecnológico. Visita el proyecto en https://la-liga-pau.vercel.app/.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
