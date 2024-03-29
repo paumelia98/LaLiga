@@ -33,8 +33,8 @@ const Videos = () => {
     };
 
     return (
-        <section className='px-4 lg:px-40 mt-16' id='videos'>
-            <h2 className='text-black font-bold text-2xl mb-8 pt-6'> RESÚMENES DE LA ÚLTIMA JORNADA</h2>
+        <section className='px-4 lg:px-40 mt-16  ' id='videos'>
+            <h2 className='text-black font-bold text-2xl mb-8  pt-12 border-t-2 border-[#e4e4e46b]'> RESÚMENES DE LA ÚLTIMA JORNADA</h2>
             <div className="flex overflow-x-auto" ref={carouselRef} style={{ scrollbarWidth: 'none' }}>
                 {videos.map((video, index) => (
                     <div key={index} className="mr-5" style={{ minWidth: '400px' }}>
