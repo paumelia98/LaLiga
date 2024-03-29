@@ -71,11 +71,11 @@ export const MatchDayComponent = () => {
 
   const getMatchStatus = (status) => {
     if (status === "FINISHED") {
-      return <div className=' bg-[#7685a5]  flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
+      return <div className=' bg-[#7685a5]  flex items-center justify-center py-1 rounded-b-lg'><p className='text-white font-semibold text-sm'>FINALIZADO</p> </div>;
     } else if (status === "IN_PLAY") {
-      return <div className='bg-[#ff4b44] flex items-center justify-center py-1'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
+      return <div className='bg-[#ff4b44] flex items-center justify-center py-1 rounded-b-lg'> <p className='text-white font-semibold text-sm'>EN JUEGO</p> </div>;
     } else {
-      return <div className=' bg-[#111827] flex items-center justify-center py-1'><p className='text-white font-semibold text-sm'>PRÓXIMAMENTE</p> </div>;
+      return <div className=' bg-[#111827] flex items-center justify-center py-1 rounded-b-lg'><p className='text-white font-semibold text-sm'>PRÓXIMAMENTE</p> </div>;
     }
   };
 
@@ -93,7 +93,7 @@ export const MatchDayComponent = () => {
       </div>
       <Swiper
        modules={[ Pagination]}
-        spaceBetween={50}
+        spaceBetween={10}
         slidesPerView={1}
         
   pagination={{ clickable: true }}
@@ -123,11 +123,11 @@ export const MatchDayComponent = () => {
         {matches.map(match => {
           const { formattedDate, formattedTime } = formatDateAndTime(match.utcDate);
           return (
-            <SwiperSlide key={match.id} className='cursor-grab active:cursor-grabbing'>
-              <div className='flex flex-col '>
-                <article className='bg-white min-w-52 border flex flex-col justify-between min-h-32'>
+            <SwiperSlide key={match.id} className='cursor-grab active:cursor-grabbing px-3'>
+              <div className='flex flex-col'>
+                <article  style={{transition: "all 0.3s cubic-bezier(0,0,0.5,1)"}} className='bg-white min-w-52 border flex flex-col justify-between min-h-32 rounded-lg hover:scale-105 hover:shadow-lg mt-3'>
                   <div>
-                    <div className='flex justify-between bg-[#f7f7f7] px-4 py-2 text-xs font-bold'>
+                    <div className='flex justify-between bg-[#f7f7f7] px-4 py-2 text-xs font-bold rounded-lg'>
                       <p>{formattedDate}</p>
                       <p>{formattedTime}</p>
                     </div>

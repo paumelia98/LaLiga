@@ -75,7 +75,7 @@ export const LastMatchday = () => {
 
   return (
 
-   <section className='bg-white px-4 lg:px-40 lg:mt-12  lg:mb-20 ' id='resultados'>
+   <section className='bg-white px-4 lg:px-40 lg:mt-12  lg:mb-20 ' style={{transition: "all 0.3s cubic-bezier(0,0,0.5,1)"}} id='resultados'>
 
 
     <div className='grid grid-cols-1 2xl:grid-cols-3  lg:gap-12 h-100  '>
@@ -88,7 +88,7 @@ export const LastMatchday = () => {
 
       <select
       id="matchdaySelect"
-        className=" text-center w-full  py-2 bg-gray-900 text-white  "
+        className=" text-center w-full  py-2 bg-gray-900 text-white rounded-t-lg cursor-pointer  "
         value={currentMatchday || ''}
         onChange={handleChangeMatchday}
       >
@@ -98,7 +98,7 @@ export const LastMatchday = () => {
       </select>
 
       {currentMatchday ? (
-        <div className="mt-0 bg-[#ffffff] p-1 w-auto pb-16 pt-6 "  style={{
+        <div className="mt-0 bg-[#ffffff] p-1 w-auto pb-16 pt-6 rounded-lg "  style={{
           boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px"
         }}>
       

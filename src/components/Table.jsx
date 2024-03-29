@@ -46,11 +46,11 @@ export const Table = () => {
 
     return (
        
-            <div className='flex justify-center overflow-x-auto col-span-2' id='tabla'>
+            <div className='flex justify-center overflow-x-auto col-span-2  '  id='tabla'>
                 
                 <div className="min-w-full relative   sm:rounded-lg">
                 <h2 className='text-black font-bold text-2xl mb-8 lg:mt-5 mt-12'>CLASIFICACIÓN</h2>
-                    <table className="w-full text-xs sm:text-sm md:text-base text-left text-gray-500 dark:text-gray-400">
+                    <table className="w-full text-xs sm:text-sm md:text-base text-left text-gray-500 dark:text-gray-400 ">
                         <thead className="text-xs sm:text-sm text-gray-700 uppercase bg-gray-50 sticky top-0 z-10">
                             <tr>
                                 <th className="px-6 py-3">#</th>
@@ -76,14 +76,14 @@ export const Table = () => {
                                             {team.team.name}
                                         </div>
                                     </td>
-                                    <td className="px-6 py-2 text-center text-sm  font-bold">{team.points}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.playedGames}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.won}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.draw}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.lost}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.goalsFor}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.goalsAgainst}</td>
-                                    <td className="px-6 py-2 text-center text-sm ">{team.goalDifference}</td>
+                                    <td className="px-6 py-2 text-sm  font-bold">{team.points}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.playedGames}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.won}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.draw}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.lost}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.goalsFor}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.goalsAgainst}</td>
+                                    <td className="px-6 py-2 text-sm ">{team.goalDifference}</td>
                                    
                                 </tr>
                             ))}

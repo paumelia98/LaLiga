@@ -39,8 +39,8 @@ const Videos = () => {
                 {videos.map((video, index) => (
                     <div key={index} className="mr-5" style={{ minWidth: '400px' }}>
                         <iframe
-                            className="w-full" 
-                            style={{ height: '250px' }}
+                            className="w-full hover:scale-105"
+                            style={{ height: '250px',transition: "all 0.3s cubic-bezier(0,0,0.5,1)" }}
                             src={`https://www.youtube.com/embed/${video.id.videoId}`}
                             title={video.snippet.title}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,8 +51,8 @@ const Videos = () => {
             </div>
 
             <div className='flex justify-center mt-[20px]'>
-                <button aria-label="Botón hacia la izquierda" onClick={() => scroll(-300)} style={{ marginRight: '10px' }}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="45.14 6.53 19.88 33.16 45.14 57.42"/></svg></button>
-                <button aria-label="Botón hacia la derecha" onClick={() => scroll(300)}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="18.86 57.47 44.12 30.84 18.86 6.58"/></svg></button>
+                <button className='hover:scale-110' aria-label="Botón hacia la izquierda"  style={{ marginRight: '10px',transition: "all 0.3s cubic-bezier(0,0,0.5,1)" }}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="45.14 6.53 19.88 33.16 45.14 57.42"/></svg></button>
+                <button  className='hover:scale-110' aria-label="Botón hacia la derecha" style={{transition: "all 0.3s cubic-bezier(0,0,0.5,1)"}} onClick={() => scroll(300)}><svg width="32px" height="32px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="5" stroke="#000000" fill="none"><polyline points="18.86 57.47 44.12 30.84 18.86 6.58"/></svg></button>
             </div>
         </section>
     );

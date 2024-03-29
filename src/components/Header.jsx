@@ -38,7 +38,7 @@ export const Header = () => {
     <header className='md:flex items-center justify-between bg-[#f0f0f0] w-full h-12 lg:px-40 p-2 hidden'>
       {Array.isArray(teams) && teams.map((team, index) => ( 
         <div key={index} className='list-none'>
-          <img className='w-7 hover:scale-150' src={team.crest} alt="logo" />
+          <img className='w-7 hover:scale-125' style={{transition: "all 0.3s cubic-bezier(0,0,0.5,1)"}} src={team.crest} alt="logo" />
         </div>
       ))}
     </header>
