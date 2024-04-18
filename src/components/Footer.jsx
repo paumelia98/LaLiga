@@ -10,8 +10,8 @@ export const Footer = () => {
 
     const socialNetworks = [
         { id: 1, name : 'facebook', src: fb, href: "https://www.facebook.com/LaLiga" },
-        { id: 2, name : 'x', src: x, href: "https://www.instagram.com/laliga/" },
-        { id: 3, name : 'insta', src: insta , href: "https://twitter.com/laliga"},
+        { id: 2, name : 'x', src: x, href:   "https://twitter.com/laliga" },
+        { id: 3, name : 'insta', src: insta , href: "https://www.instagram.com/laliga/"},
         { id: 4, name : 'youtube', src: youtube, href: "https://www.youtube.com/user/laliga" },
         { id: 5, name : 'tiktok', src: tiktok, href: "https://www.tiktok.com/@laliga" },
     ]
